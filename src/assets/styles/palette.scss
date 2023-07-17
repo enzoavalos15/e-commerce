@@ -1,0 +1,108 @@
+@import "@angular/material/theming";
+
+@include mat.core();
+
+$my-palette-primary: (
+  50: #e1fffb,
+  100: #b8fff8,
+  200: #76fff8,
+  300: #0edbe0,
+  400: #00bbc9,
+  500: #01a6bb,
+  600: #1b8a93,
+  700: #1b6668,
+  800: #0e4f4f,
+  900: #073533,
+  contrast: (
+    50: #282843,
+    100: #282843,
+    200: #282843,
+    300: #282843,
+    400: #282843,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+  ),
+);
+
+$my-palette-accent: (
+  50: #f7f7fc,
+  100: #ededf2,
+  200: #ccccdd,
+  300: #9a9ab7,
+  400: #464666,
+  500: #282843,
+  600: #171730,
+  700: #171730,
+  800: #171730,
+  900: #171730,
+  contrast: (
+    50: #282843,
+    100: #282843,
+    200: #282843,
+    300: #282843,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+  ),
+);
+
+$my-palette-warn: (
+  50: #fff2f5,
+  100: #ffdce4,
+  200: #ffb6c5,
+  300: #ff9bb0,
+  400: #fe7390,
+  500: #e0516f,
+  600: #d34462,
+  700: #c82e4e,
+  800: #af1435,
+  900: #940423,
+  contrast: (
+    50: #282843,
+    100: #282843,
+    200: #282843,
+    300: #282843,
+    400: #282843,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+  ),
+);
+
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: mat.define-palette($my-palette-primary),
+      accent: mat.define-palette($my-palette-accent),
+      warn: mat.define-palette($my-palette-warn),
+    ),
+  )
+);
+
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette($my-palette-primary),
+      accent: mat.define-palette($my-palette-accent),
+      warn: mat.define-palette($my-palette-warn),
+    ),
+  )
+);
+
+@include mat.all-component-themes($light-theme);
+
+@media (prefers-color-scheme: dark) {
+  @include mat.all-component-colors($dark-theme);
+}
+.dark-mode {
+  @include mat.all-component-colors($dark-theme);
+}
+
